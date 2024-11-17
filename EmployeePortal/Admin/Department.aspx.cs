@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EmployeePortal.Models;
+using EmployeePortal.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +14,18 @@ namespace EmployeePortal.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+        
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            DepartmentModel model = new DepartmentModel()
+            {
+                Code = txtDepartmentCode.Text,
+                Name = txtDepartmentName.Text,
+                Descriptions = txtDescription.Text
+            };
+            DepartmentRepository repository = new DepartmentRepository();
+            repository.Save(model);
         }
     }
 }

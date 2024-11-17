@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link href="../Content/css/AppStyle.css" rel="stylesheet" />
+   <%-- <link href="../Content/css/AppStyle.css" rel="stylesheet" />--%>
     <link href="../Content/css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
@@ -40,7 +40,7 @@
                                 <asp:Button runat="server" Text="ReSet" CssClass="btn btn-danger" />
                             </td>
                             <td>
-                                <asp:Button runat="server" Text="Save" CssClass="btn btn-success" />
+                                <asp:Button ID="btnSave" runat="server" Text="Save" CssClass="btn btn-success" OnClick="btnSave_Click"/>
                             </td>
                         </tr>
                     </table>
