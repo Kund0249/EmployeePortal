@@ -11,21 +11,54 @@ namespace EmployeePortal.Admin
 {
     public partial class Department : System.Web.UI.Page
     {
+        private readonly DepartmentRepository repository;
+
+        public Department()
+        {
+            repository = new DepartmentRepository();
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                LoadDataTable();
+            }
         }
         
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            DepartmentModel model = new DepartmentModel()
+            if (Page.IsValid)
             {
-                Code = txtDepartmentCode.Text,
-                Name = txtDepartmentName.Text,
-                Descriptions = txtDescription.Text
-            };
-            DepartmentRepository repository = new DepartmentRepository();
-            repository.Save(model);
+                DepartmentModel model = new DepartmentModel()
+                {
+                    Code = txtDepartmentCode.Text,
+                    Name = txtDepartmentName.Text,
+                    Descriptions = txtDescription.Text
+                };
+                repository.Save(model);
+                ResetForm();
+                LoadDataTable();
+            }
+        }
+
+        private void LoadDataTable()
+        {
+            DepartmentGrid.DataSource = repository.GetDepartments();
+            DepartmentGrid.DataBind();
+        }
+
+        private void ResetForm()
+        {
+            txtDepartmentCode.Text = string.Empty;
+            txtDepartmentName.Text = string.Empty;
+            txtDescription.Text = string.Empty;
+        }
+
+        protected void DepartmentGrid_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int Id = Convert.ToInt32(DepartmentGrid.DataKeys[e.RowIndex].Value);
+            repository.Remove(Id);
+            LoadDataTable();
         }
     }
 }

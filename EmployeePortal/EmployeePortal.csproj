@@ -70,6 +70,7 @@
     <Content Include="Admin\Department.aspx" />
     <Content Include="Content\css\AppStyle.css" />
     <Content Include="Content\css\bootstrap.css" />
+    <Content Include="DataBaseScripts\DBandTablecreationWithSP_23112024.txt" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>

@@ -5,30 +5,89 @@ using System.Web;
 using System.Data.SqlClient;
 using EmployeePortal.Models;
 using System.Configuration;
+using EmployeePortal.Admin;
 
 namespace EmployeePortal.Repositories
 {
     public class DepartmentRepository
     {
+        private string _connectionString;
+
+        public DepartmentRepository()
+        {
+            _connectionString = ConfigurationManager.ConnectionStrings["EPSDBCON"].ConnectionString;
+        }
         public void Save(DepartmentModel model)
         {
             //Step-1 Prepare Connection
             //string connectionString = "data source=DESKTOP-G3RV5V6;database=EPSDB;trusted_connection=true;TrustServerCertificate=true";
-            string connectionString = ConfigurationManager.ConnectionStrings["EPSDBCON"].ConnectionString;
+            //string connectionString = ConfigurationManager.ConnectionStrings["EPSDBCON"].ConnectionString;
 
-            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlConnection con = new SqlConnection(_connectionString))
             {
 
                 //Step-2 Prepare Command
-                string SqlQuery = $"Insert into TDEPARTMENT (Code,Name,Description) Values('{model.Code}','{model.Name}','{model.Descriptions}')";
-                SqlCommand cmd = new SqlCommand(SqlQuery, con);
+                //string SqlQuery = $"spAddDepartment";
+                SqlCommand command = new SqlCommand("spAddDepartment", con);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                command.Parameters.AddWithValue("@code", model.Code );
+                command.Parameters.AddWithValue("@DeptName", model.Name);
+                command.Parameters.AddWithValue("@DeptDesc", model.Descriptions);
 
                 //Step-3 Open the connection and execute query
                 con.Open();
-                cmd.ExecuteNonQuery();
-                //con.Close();
+                command.ExecuteNonQuery();
+                con.Close();
             }
             //code 10 min
+        }
+
+        public List<DepartmentModel> GetDepartments()
+        {
+            List<DepartmentModel> departments = new List<DepartmentModel>();
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = new SqlCommand("spGetAllDepartments", connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        departments.Add(new DepartmentModel()
+                        {
+                            Id = Convert.ToInt32(reader["DeptId"]),
+                            Code = reader["Code"].ToString(),
+                            Name = reader["Name"].ToString(),
+                            Descriptions = reader["Description"].ToString()
+                        });
+                    }
+                }
+            }
+
+            return departments;
+        }
+
+        public void Remove(int departmentId)
+        {
+            using (SqlConnection con = new SqlConnection(_connectionString))
+            {
+                //string SqlQuery = $"Delete from TDEPARTMENT where DeptId = {departmentId}";
+                //SqlCommand cmd = new SqlCommand(SqlQuery, con);
+                //con.Open();
+                //cmd.ExecuteNonQuery();
+                //-------------------------------------------------------
+                SqlCommand cmd = new SqlCommand("spDeleteDepartmentById", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@departmentId", departmentId);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }
