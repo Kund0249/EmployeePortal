@@ -7,12 +7,18 @@
     <title></title>
     <%-- <link href="../Content/css/AppStyle.css" rel="stylesheet" />--%>
     <link href="../Content/css/bootstrap.css" rel="stylesheet" />
+    <link href="../Content/toastr/toastr.css" rel="stylesheet" />
+
+    <script src="../Content/jquery/jquery.min.js"></script>
+    <script src="../Content/toastr/toastr.min.js"></script>
 </head>
+
 <body>
     <form id="form1" runat="server">
         <div class="container-fluid">
             <div class="row mt-10">
                 <div class="col-md-6 col-sm-12 offset-md-3">
+                    <asp:HiddenField runat="server" ID="hdfDeptId"></asp:HiddenField>
                     <table class="table">
                         <tr>
                             <th>Department Code</th>
@@ -46,7 +52,7 @@
                                     Display="Dynamic">
                                 </asp:RequiredFieldValidator>
                                 <asp:RegularExpressionValidator runat="server"
-                                    ValidationExpression="[a-zA-Z\s]{1,20}"
+                                    ValidationExpression="[a-zA-Z\s]{1,50}"
                                     ControlToValidate="txtDepartmentName"
                                     ErrorMessage="Invalid Name,Maximum 20 characte is allowed"
                                     ForeColor="Red"
@@ -79,13 +85,23 @@
                         ID="DepartmentGrid"
                         AutoGenerateColumns="false"
                         OnRowDeleting="DepartmentGrid_RowDeleting"
+                        OnSelectedIndexChanged="DepartmentGrid_SelectedIndexChanged"
                         DataKeyNames="Id">
                         <Columns>
+
                             <asp:BoundField HeaderText="Dept Code" DataField="Code" />
                             <asp:BoundField HeaderText="Dept Name" DataField="Name" />
                             <asp:BoundField HeaderText="Description" DataField="Descriptions" />
-                            <asp:CommandField HeaderText="Action" ShowDeleteButton="true"
-                                ButtonType="Button" ControlStyle-CssClass="btn btn-sm btn-danger" />
+                            <asp:CommandField HeaderText="Action" 
+                                ShowDeleteButton="true"
+                                DeleteImageUrl ="~/Content/App-Icons/trans.png"
+                                ShowSelectButton="true"
+                                SelectImageUrl="~/Content/App-Icons/Pencil.png"
+                                ButtonType="Image" 
+                                ControlStyle-Width="20"
+                                ControlStyle-Height="20"
+                                />
+                            
                         </Columns>
                     </asp:GridView>
                 </div>

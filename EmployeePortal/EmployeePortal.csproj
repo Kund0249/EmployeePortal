@@ -68,8 +68,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\Department.aspx" />
+    <Content Include="Content\App-Icons\Pencil.png" />
+    <Content Include="Content\App-Icons\trans.png" />
     <Content Include="Content\css\AppStyle.css" />
     <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\jquery\jquery.min.js" />
+    <Content Include="Content\toastr\toastr.css" />
+    <Content Include="Content\toastr\toastr.min.js" />
     <Content Include="DataBaseScripts\DBandTablecreationWithSP_23112024.txt" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -82,6 +87,7 @@
     <Compile Include="Admin\Department.aspx.designer.cs">
       <DependentUpon>Department.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Constant\AppStatusCode.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
