@@ -1,0 +1,33 @@
+﻿Create proc spUpdateDepartment
+@DepartmentId int,
+@Code varchar(6),
+@Name varchar(50),
+@Description varchar(200)
+AS  
+BEGIN  
+
+If Not EXISTS(select 1 from TDEPARTMENT where Code = @Code and DeptId != @DepartmentId)
+BEGIN
+   update TDEPARTMENT
+   Set Code = @Code,
+   [Name] = @Name,
+   Description = @Description
+   Where DeptId = @DepartmentId
+
+   Select 'S001' as StatusCode
+   return
+END
+
+   Select 'RE01' as StatusCode
+   return
+ 
+END
+
+
+ALTER proc [dbo].[spGetAllDepartments]
+@DepartmentId int = 0 
+AS  
+BEGIN  
+ Select * from TDEPARTMENT
+ where (@DepartmentId = 0 or DeptId = @DepartmentId);  
+END
