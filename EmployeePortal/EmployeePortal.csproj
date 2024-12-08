@@ -68,6 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\Department.aspx" />
+    <Content Include="Admin\Employee.aspx" />
+    <Content Include="Admin\UserManagement.aspx" />
     <Content Include="Content\App-Icons\Pencil.png" />
     <Content Include="Content\App-Icons\trans.png" />
     <Content Include="Content\css\AppStyle.css" />
@@ -76,6 +78,9 @@
     <Content Include="Content\toastr\toastr.css" />
     <Content Include="Content\toastr\toastr.min.js" />
     <Content Include="DataBaseScripts\DBandTablecreationWithSP_23112024.txt" />
+    <Content Include="DataBaseScripts\DBScript_07122024.txt" />
+    <Content Include="Examples\DropdownBinding.aspx" />
+    <Content Include="Examples\FileUploadExample.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -87,9 +92,43 @@
     <Compile Include="Admin\Department.aspx.designer.cs">
       <DependentUpon>Department.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Employee.aspx.cs">
+      <DependentUpon>Employee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Employee.aspx.designer.cs">
+      <DependentUpon>Employee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserManagement.aspx.cs">
+      <DependentUpon>UserManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserManagement.aspx.designer.cs">
+      <DependentUpon>UserManagement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Constant\AppStatusCode.cs" />
+    <Compile Include="Examples\DropdownBinding.aspx.cs">
+      <DependentUpon>DropdownBinding.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Examples\DropdownBinding.aspx.designer.cs">
+      <DependentUpon>DropdownBinding.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Examples\FileUploadExample.aspx.cs">
+      <DependentUpon>FileUploadExample.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Examples\FileUploadExample.aspx.designer.cs">
+      <DependentUpon>FileUploadExample.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Main.Master.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Main.Master.designer.cs">
+      <DependentUpon>Main.Master</DependentUpon>
     </Compile>
     <Compile Include="Models\DepartmentModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -97,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="libman.json" />
+    <Content Include="Layouts\Main.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -108,6 +148,7 @@
   <ItemGroup>
     <Folder Include="Account\" />
     <Folder Include="Employees\" />
+    <Folder Include="UploadFiles\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

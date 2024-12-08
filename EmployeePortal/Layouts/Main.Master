@@ -1,0 +1,44 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="EmployeePortal.Layouts.Main" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <asp:ContentPlaceHolder runat="server" ID="Contenthead"></asp:ContentPlaceHolder>
+    <link href="../Content/css/bootstrap.css" rel="stylesheet" />
+    <link href="../Content/toastr/toastr.css" rel="stylesheet" />
+
+    <script src="../Content/jquery/jquery.min.js"></script>
+    <script src="../Content/toastr/toastr.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="../Admin/Employee.aspx">Employee</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Admin/Department.aspx">Department</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Examples/FileUploadExample.aspx">FileUpload</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Examples/DropdownBinding.aspx">DropDown</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Admin/UserManagement.aspx">User Management</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fuild">
+        <div class="row">
+            <asp:ContentPlaceHolder ID="ContentPage" runat="server"></asp:ContentPlaceHolder>
+        </div>
+    </div>
+
+</body>
+</html>
