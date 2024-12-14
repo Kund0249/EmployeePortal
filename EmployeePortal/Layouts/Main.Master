@@ -16,7 +16,7 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="../Admin/Employee.aspx">Employee</a>
+                    <a class="nav-link" href="../Admin/EmployeeList.aspx">Employee</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../Admin/Department.aspx">Department</a>

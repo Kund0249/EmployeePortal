@@ -44,6 +44,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -68,7 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\Department.aspx" />
-    <Content Include="Admin\Employee.aspx" />
+    <Content Include="Admin\EmployeeList.aspx" />
     <Content Include="Admin\UserManagement.aspx" />
     <Content Include="Content\App-Icons\Pencil.png" />
     <Content Include="Content\App-Icons\trans.png" />
@@ -92,12 +93,12 @@
     <Compile Include="Admin\Department.aspx.designer.cs">
       <DependentUpon>Department.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Employee.aspx.cs">
-      <DependentUpon>Employee.aspx</DependentUpon>
+    <Compile Include="Admin\EmployeeList.aspx.cs">
+      <DependentUpon>EmployeeList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\Employee.aspx.designer.cs">
-      <DependentUpon>Employee.aspx</DependentUpon>
+    <Compile Include="Admin\EmployeeList.aspx.designer.cs">
+      <DependentUpon>EmployeeList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\UserManagement.aspx.cs">
       <DependentUpon>UserManagement.aspx</DependentUpon>
@@ -107,6 +108,11 @@
       <DependentUpon>UserManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="Constant\AppStatusCode.cs" />
+    <Compile Include="Data\EPSDB.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EPSDB.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Examples\DropdownBinding.aspx.cs">
       <DependentUpon>DropdownBinding.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -126,17 +132,28 @@
     </Compile>
     <Compile Include="Layouts\Main.Master.cs">
       <DependentUpon>Main.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Layouts\Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
     <Compile Include="Models\DepartmentModel.cs" />
+    <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\DepartmentRepository.cs" />
+    <Compile Include="Repositories\EmployeeRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="libman.json" />
     <Content Include="Layouts\Main.Master" />
+    <Content Include="Data\EPSDB.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>EPSDB.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Data\EPSDB.dbml.layout">
+      <DependentUpon>EPSDB.dbml</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -149,6 +166,9 @@
     <Folder Include="Account\" />
     <Folder Include="Employees\" />
     <Folder Include="UploadFiles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

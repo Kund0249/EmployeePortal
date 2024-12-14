@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="EPSDB">
+  <DataContextMoniker Name="/EPSDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="c49276bf-5c0b-4e26-9374-76dfd7e29689" absoluteBounds="0.5, 0.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/EPSDBDataContext/TDEPARTMENT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="779ef1dd-a995-43be-a685-f5b1889965c7" absoluteBounds="0.51500000000000012, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2736c3cd-2fed-449a-9ac6-6c7562faa0e2" absoluteBounds="4.125, 0.625, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/EPSDBDataContext/TEMPLOYEE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="69f7eb50-d5aa-40e7-bf18-9468501093c2" absoluteBounds="4.1400000000000006, 1.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 1.53929768880208); (4.125 : 1.53929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EPSDBDataContext/TDEPARTMENT/TDEPARTMENT_TEMPLOYEE" />
+      <nodes>
+        <classShapeMoniker Id="c49276bf-5c0b-4e26-9374-76dfd7e29689" />
+        <classShapeMoniker Id="2736c3cd-2fed-449a-9ac6-6c7562faa0e2" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

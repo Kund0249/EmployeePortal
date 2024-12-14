@@ -83,7 +83,17 @@
                     DataKeyNames="Id">
                     <Columns>
 
-                        <asp:BoundField HeaderText="Dept Code" DataField="Code" />
+                      <%--  <asp:BoundField HeaderText="Dept Code" DataField="Code" />--%>
+                        <%--<asp:HyperLinkField HeaderText="Dept Code" DataTextField ="Code" 
+                            NavigateUrl="~/Admin/EmployeeList.aspx?dcode=103"/>--%>
+
+                        <asp:TemplateField HeaderText="Dept Code">
+                            <ItemTemplate>
+                                <asp:HyperLink runat="server" Text='<%# Eval("Code") %>'
+                                    NavigateUrl='<%# string.Format("~/Admin/EmployeeList.aspx?dcode={0}",Eval("Id")) %>'></asp:HyperLink>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
                         <asp:BoundField HeaderText="Dept Name" DataField="Name" />
                         <asp:BoundField HeaderText="Description" DataField="Descriptions" />
                         <asp:CommandField HeaderText="Action" 

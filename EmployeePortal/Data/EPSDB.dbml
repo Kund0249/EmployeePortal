@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="EPSDB" Class="EPSDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.TDEPARTMENT" Member="TDEPARTMENTs">
+    <Type Name="TDEPARTMENT">
+      <Column Name="DeptId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Association Name="TDEPARTMENT_TEMPLOYEE" Member="TEMPLOYEEs" ThisKey="DeptId" OtherKey="DepartmentId" Type="TEMPLOYEE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TEMPLOYEE" Member="TEMPLOYEEs">
+    <Type Name="TEMPLOYEE">
+      <Column Name="EmpCode" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Mobile" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TDEPARTMENT_TEMPLOYEE" Member="TDEPARTMENT" ThisKey="DepartmentId" OtherKey="DeptId" Type="TDEPARTMENT" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
