@@ -37,12 +37,16 @@ namespace EmployeePortal.Admin
                     Name = txtDepartmentName.Text,
                     Descriptions = txtDescription.Text
                 };
-
-                if (!(string.IsNullOrEmpty(hdfDeptId.Value) &&
-                    string.IsNullOrWhiteSpace(hdfDeptId.Value))
-                    )
+                int DeptId = 0;
+                if(ViewState["DeptId"] != null)
                 {
-                    model.Id = Convert.ToInt32(hdfDeptId.Value);
+                    DeptId = Convert.ToInt32(ViewState["DeptId"]);
+                }
+
+                if (DeptId > 0)
+                {
+                    //model.Id = Convert.ToInt32(hdfDeptId.Value);
+                    model.Id = DeptId;
                     var statuscode = repository.Update(model);
                     if (statuscode == AppStatusCode.Success)
                     {
@@ -85,7 +89,8 @@ namespace EmployeePortal.Admin
             txtDepartmentCode.Text = string.Empty;
             txtDepartmentName.Text = string.Empty;
             txtDescription.Text = string.Empty;
-            hdfDeptId.Value = null;
+            // hdfDeptId.Value = null;
+            ViewState["DeptId"] = null;
         }
 
         protected void DepartmentGrid_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -103,7 +108,8 @@ namespace EmployeePortal.Admin
             txtDepartmentCode.Text = model.Code;
             txtDepartmentName.Text = model.Name;
             txtDescription.Text = model.Descriptions;
-            hdfDeptId.Value = model.Id.ToString();
+            //hdfDeptId.Value = model.Id.ToString();
+            ViewState["DeptId"] = model.Id.ToString();
         }
     }
 }

@@ -36,6 +36,9 @@ namespace EmployeePortal.Data
     partial void InsertTEMPLOYEE(TEMPLOYEE instance);
     partial void UpdateTEMPLOYEE(TEMPLOYEE instance);
     partial void DeleteTEMPLOYEE(TEMPLOYEE instance);
+    partial void InsertTUSER(TUSER instance);
+    partial void UpdateTUSER(TUSER instance);
+    partial void DeleteTUSER(TUSER instance);
     #endregion
 		
 		public EPSDBDataContext(string connection) : 
@@ -75,6 +78,14 @@ namespace EmployeePortal.Data
 			get
 			{
 				return this.GetTable<TEMPLOYEE>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TUSER> TUSERs
+		{
+			get
+			{
+				return this.GetTable<TUSER>();
 			}
 		}
 	}
@@ -463,6 +474,212 @@ namespace EmployeePortal.Data
 						this._DepartmentId = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("TDEPARTMENT");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TUSER")]
+	public partial class TUSER : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _SystemNumber;
+		
+		private string _EmailAddress;
+		
+		private string _FullName;
+		
+		private string _Password;
+		
+		private System.Nullable<bool> _IsLocked;
+		
+		private System.Nullable<System.DateTime> _AccountLockOn;
+		
+		private System.Nullable<System.DateTime> _PasswordExpiration;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnSystemNumberChanging(int value);
+    partial void OnSystemNumberChanged();
+    partial void OnEmailAddressChanging(string value);
+    partial void OnEmailAddressChanged();
+    partial void OnFullNameChanging(string value);
+    partial void OnFullNameChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
+    partial void OnIsLockedChanging(System.Nullable<bool> value);
+    partial void OnIsLockedChanged();
+    partial void OnAccountLockOnChanging(System.Nullable<System.DateTime> value);
+    partial void OnAccountLockOnChanged();
+    partial void OnPasswordExpirationChanging(System.Nullable<System.DateTime> value);
+    partial void OnPasswordExpirationChanged();
+    #endregion
+		
+		public TUSER()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SystemNumber", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int SystemNumber
+		{
+			get
+			{
+				return this._SystemNumber;
+			}
+			set
+			{
+				if ((this._SystemNumber != value))
+				{
+					this.OnSystemNumberChanging(value);
+					this.SendPropertyChanging();
+					this._SystemNumber = value;
+					this.SendPropertyChanged("SystemNumber");
+					this.OnSystemNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmailAddress", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string EmailAddress
+		{
+			get
+			{
+				return this._EmailAddress;
+			}
+			set
+			{
+				if ((this._EmailAddress != value))
+				{
+					this.OnEmailAddressChanging(value);
+					this.SendPropertyChanging();
+					this._EmailAddress = value;
+					this.SendPropertyChanged("EmailAddress");
+					this.OnEmailAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FullName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string FullName
+		{
+			get
+			{
+				return this._FullName;
+			}
+			set
+			{
+				if ((this._FullName != value))
+				{
+					this.OnFullNameChanging(value);
+					this.SendPropertyChanging();
+					this._FullName = value;
+					this.SendPropertyChanged("FullName");
+					this.OnFullNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(200)")]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsLocked", DbType="Bit")]
+		public System.Nullable<bool> IsLocked
+		{
+			get
+			{
+				return this._IsLocked;
+			}
+			set
+			{
+				if ((this._IsLocked != value))
+				{
+					this.OnIsLockedChanging(value);
+					this.SendPropertyChanging();
+					this._IsLocked = value;
+					this.SendPropertyChanged("IsLocked");
+					this.OnIsLockedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccountLockOn", DbType="DateTime")]
+		public System.Nullable<System.DateTime> AccountLockOn
+		{
+			get
+			{
+				return this._AccountLockOn;
+			}
+			set
+			{
+				if ((this._AccountLockOn != value))
+				{
+					this.OnAccountLockOnChanging(value);
+					this.SendPropertyChanging();
+					this._AccountLockOn = value;
+					this.SendPropertyChanged("AccountLockOn");
+					this.OnAccountLockOnChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PasswordExpiration", DbType="DateTime")]
+		public System.Nullable<System.DateTime> PasswordExpiration
+		{
+			get
+			{
+				return this._PasswordExpiration;
+			}
+			set
+			{
+				if ((this._PasswordExpiration != value))
+				{
+					this.OnPasswordExpirationChanging(value);
+					this.SendPropertyChanging();
+					this._PasswordExpiration = value;
+					this.SendPropertyChanged("PasswordExpiration");
+					this.OnPasswordExpirationChanged();
 				}
 			}
 		}

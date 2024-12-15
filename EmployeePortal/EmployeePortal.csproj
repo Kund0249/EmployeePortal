@@ -68,6 +68,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Account\Login.aspx" />
     <Content Include="Admin\Department.aspx" />
     <Content Include="Admin\EmployeeList.aspx" />
     <Content Include="Admin\UserManagement.aspx" />
@@ -80,12 +81,20 @@
     <Content Include="Content\toastr\toastr.min.js" />
     <Content Include="DataBaseScripts\DBandTablecreationWithSP_23112024.txt" />
     <Content Include="DataBaseScripts\DBScript_07122024.txt" />
+    <Content Include="DataBaseScripts\UsermanagementDbScript.txt" />
     <Content Include="Examples\DropdownBinding.aspx" />
     <Content Include="Examples\FileUploadExample.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Department.aspx.cs">
       <DependentUpon>Department.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -151,6 +160,7 @@
       <LastGenOutput>EPSDB.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Admin\Web.config" />
     <None Include="Data\EPSDB.dbml.layout">
       <DependentUpon>EPSDB.dbml</DependentUpon>
     </None>
@@ -163,7 +173,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Account\" />
     <Folder Include="Employees\" />
     <Folder Include="UploadFiles\" />
   </ItemGroup>

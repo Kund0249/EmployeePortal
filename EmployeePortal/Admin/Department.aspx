@@ -12,7 +12,7 @@
     <div class="container-fluid">
         <div class="row mt-10">
             <div class="col-md-6 col-sm-12 offset-md-3">
-                <asp:HiddenField runat="server" ID="hdfDeptId"></asp:HiddenField>
+              <%--  <asp:HiddenField runat="server" ID="hdfDeptId"></asp:HiddenField>--%>
                 <table class="table">
                     <tr>
                         <th>Department Code</th>

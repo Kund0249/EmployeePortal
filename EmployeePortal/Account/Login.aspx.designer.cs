@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EmployeePortal.Admin
+namespace EmployeePortal.Account
 {
 
 
-    public partial class Department
+    public partial class Login
     {
 
         /// <summary>
@@ -24,48 +24,39 @@ namespace EmployeePortal.Admin
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// txtDepartmentCode control.
+        /// txtEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDepartmentCode;
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
         /// <summary>
-        /// txtDepartmentName control.
+        /// txtpasswor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDepartmentName;
+        protected global::System.Web.UI.WebControls.TextBox txtpasswor;
 
         /// <summary>
-        /// txtDescription control.
+        /// btnLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescription;
+        protected global::System.Web.UI.WebControls.Button btnLogin;
 
         /// <summary>
-        /// btnSave control.
+        /// lblError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
-
-        /// <summary>
-        /// DepartmentGrid control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView DepartmentGrid;
+        protected global::System.Web.UI.WebControls.Label lblError;
     }
 }

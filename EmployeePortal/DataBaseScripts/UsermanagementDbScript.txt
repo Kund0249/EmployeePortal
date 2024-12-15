@@ -1,0 +1,10 @@
+﻿Create table TUSER
+(
+  SystemNumber int  identity(10001,99999) primary key,
+  EmailAddress varchar(50) not null unique,
+  FullName varchar(50) not null,
+  [Password] varchar(200) null,
+  IsLocked bit null,
+  AccountLockOn datetime null,
+  PasswordExpiration datetime null,
+)
