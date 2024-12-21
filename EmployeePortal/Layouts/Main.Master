@@ -30,6 +30,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="../Admin/UserManagement.aspx">User Management</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <%if (Session["CurrentUserName"] != null)
+                            {
+                                Response.Write(string.Format("Welcome - {0}", Session["CurrentUserName"].ToString()));
+                            }
+                        %>
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>

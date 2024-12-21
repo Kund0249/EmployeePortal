@@ -27,9 +27,20 @@
                             </div>
                         </div>
                         <div class="row mb-3">
+                            <div class="col-4">
+                                <label>Rember me : </label>
+                            </div>
+                            <div class="col-8">
+                                <asp:CheckBox runat="server" ID="chkRemberme"
+                                    CssClass=""></asp:CheckBox>
+                            </div>
+
+
+                        </div>
+                        <div class="row mb-3">
                             <asp:Button runat="server" ID="btnLogin"
                                 Text="Login" CssClass="btn btn-primary"
-                                OnClick="btnLogin_Click"/>
+                                OnClick="btnLogin_Click" />
                         </div>
                     </div>
                     <div class="card-footer">
