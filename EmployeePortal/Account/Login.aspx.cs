@@ -34,7 +34,18 @@ namespace EmployeePortal.Account
                         else
                         {
                             Session["CurrentUserName"] = userdetails.FullName;
+                            if (Application["UserName"] != null)
+                            {
+                                List<string> userList = (List<string>)Application["UserName"];
+                                userList.Add(userdetails.FullName);
+                                Application["UserName"] = userList;
+                            }
+                            else
+                            {
+                                Application["UserName"] = new List<string>() { userdetails.FullName };
+                            }
                             FormsAuthentication.RedirectFromLoginPage(EmailAddress, false);
+                         
                         }
 
                     }
@@ -71,6 +82,17 @@ namespace EmployeePortal.Account
                     Response.Cookies.Add(ck);
                 }
                 Session["CurrentUserName"] = userdetails.FullName;
+                if(Application["UserName"] != null)
+                {
+                    List<string> userList = (List<string>)Application["UserName"];
+                    userList.Add(userdetails.FullName);
+                    Application["UserName"] = userList;
+                }
+                else
+                {
+                    Application["UserName"] = new List<string>() { userdetails.FullName };
+                }
+               
                 FormsAuthentication.RedirectFromLoginPage(EmailAddress, false);
             }
             else

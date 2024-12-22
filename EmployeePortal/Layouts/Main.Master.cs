@@ -11,7 +11,10 @@ namespace EmployeePortal.Layouts
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(Application["UserCount"] != null)
+            {
+                lblUserCount.Text = "Total User : " + Application["UserCount"].ToString();
+            }
         }
     }
 }

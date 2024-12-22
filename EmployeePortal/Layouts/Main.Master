@@ -28,6 +28,10 @@
                     <a class="nav-link" href="../Examples/DropdownBinding.aspx">DropDown</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="../Examples/RepeaterExample.aspx">Repeater
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="../Admin/UserManagement.aspx">User Management</a>
                 </li>
                 <li class="nav-item">
@@ -46,6 +50,33 @@
     <div class="container-fuild">
         <div class="row">
             <asp:ContentPlaceHolder ID="ContentPage" runat="server"></asp:ContentPlaceHolder>
+        </div>
+
+        <div class="row">
+            <div class="col-4">
+                <label>
+                    <asp:Label runat="server" ID="lblUserCount">
+                    </asp:Label>
+                </label>
+            </div>
+            <div class="col-6">
+                <ol>
+                    <%
+                        if (Application["UserName"] != null)
+                        {
+                            foreach (var item in (List<string>)Application["UserName"])
+                            {
+
+                    %>
+                    <li><% Response.Write(item); %></li>
+
+                    <%
+                            }
+                        }
+
+                    %>
+                </ol>
+            </div>
         </div>
     </div>
 
